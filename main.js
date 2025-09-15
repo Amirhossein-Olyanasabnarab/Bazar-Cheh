@@ -7,7 +7,8 @@ function main(){
     const port = process.env.PORT || 3000;
     require('./src/configs/mongoose.config');
 
-
+    app.use(express.json());
+    app.use(express.urlencoded({extended: true}));
     app.use(mainRouter);
     app.listen(port, () => {
         console.log(`Server is running on http://localhost:${port}`);
